@@ -11,4 +11,5 @@ class RegisterForm(UserCreationForm):
             "password2",
             "email",
             "university",
+            "image",
         ]

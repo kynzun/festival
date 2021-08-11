@@ -1,8 +1,17 @@
 {%extends 'base.html' %}
 
 {% block content %}
-<h1>{{username}}</h1>
-<h1>{{email}}</h1>
-<h1>{{university}}</h1>
-<h1>{{like_artists.count}}</h1>
+<h1>{{user.username}}</h1>
+<h1>{{user.email}}</h1>
+<h1>{{user.university}}</h1>
+{%if user.image %}
+<img src="{{user.image.url}}" style="width: 100px;">
+{%endif%}
+
+<hr>
+<h1>{{user.like_artists.count}}명에게 투표했어요</h1>
+{%for artist in like_artists %}
+<h1>{{artist.name}}</h1>
+<img src="{{artist.image.url}}" style="width: 100px;">
+{%endfor%}
 {% endblock %}

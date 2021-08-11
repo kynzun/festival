@@ -16,7 +16,8 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            user = authenticate(request=request, username=username, password=password)
+            user = authenticate(
+                request=request, username=username, password=password)
             if user is not None:
                 login(request, user)
 
@@ -46,10 +47,5 @@ def register_view(request):
 @login_required
 def mypage_view(request):
     user = request.user
-    context = {
-        "username": user.username,
-        "email": user.email,
-        "university": user.university,
-        "like_artists": user.like_artists,
-    }
-    return render(request, "mypage.html", context=context)
+    like_artists = user.like_artists.all()
+    return render(request, "mypage.html", {'user': user, 'like_artists': like_artists, })
