@@ -16,8 +16,7 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            user = authenticate(
-                request=request, username=username, password=password)
+            user = authenticate(request=request, username=username, password=password)
             if user is not None:
                 login(request, user)
 
@@ -27,6 +26,7 @@ def login_view(request):
         return render(request, "login.html", {"form": form})
 
 
+@login_required(redirect_field_name=None, login_url="login")
 def logout_view(request):
     logout(request)
     return redirect("home")
@@ -44,8 +44,15 @@ def register_view(request):
         return render(request, "signup.html", {"form": form})
 
 
-@login_required
+@login_required(redirect_field_name=None, login_url="login")
 def mypage_view(request):
     user = request.user
     like_artists = user.like_artists.all()
-    return render(request, "mypage.html", {'user': user, 'like_artists': like_artists, })
+    return render(
+        request,
+        "mypage.html",
+        {
+            "user": user,
+            "like_artists": like_artists,
+        },
+    )

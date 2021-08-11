@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Artist
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -27,6 +28,7 @@ def home(request):
     )
 
 
+@login_required(redirect_field_name=None, login_url="login")
 def artist_view(request, name):
     artist = Artist.objects.get(name=name)
     user = request.user
@@ -36,6 +38,7 @@ def artist_view(request, name):
     return render(request, "artist_view.html", {"artist": artist, "voted": voted})
 
 
+@login_required(redirect_field_name=None, login_url="login")
 def artist_vote(request, name):
     artist = Artist.objects.get(name=name)
     user = request.user
