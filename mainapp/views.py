@@ -45,4 +45,6 @@ def artist_vote(request, name):
 
 def category_view(request, category):
     artists = Artist.objects.filter(category=category)
-    return render(request, "category_view.html", {"artists": artists})
+    return render(
+        request, "category_view.html", {"artists": artists, "category": category}
+    )

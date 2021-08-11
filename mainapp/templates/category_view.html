@@ -1,11 +1,16 @@
 {%extends 'base.html' %}
 {% block content %}
 
-{%for artist in artists %}
-<a href="{%url 'artistView' artist.name %}">
-    <h1>{{artist.name}}</h1>
-    <img src="{{artist.image.url}}" style="width: 100px;">
-</a>
-{%endfor%}
+<div class="home-row">
+    <div class="">{{category}} ></div>
+    <div class="artist-list">
+        {%for artist in artists %}
+        <a class="artist-box" href="{%url 'artistView' artist.name %}">
+            <img class="artist-img" src="{{artist.image.url}}">
+            <div>{{artist.name}}</div>
+        </a>
+        {%endfor%}
+    </div>
+</div>
 
 {% endblock %}

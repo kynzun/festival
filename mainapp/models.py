@@ -18,7 +18,12 @@ class Artist(models.Model):
         max_length=100, default="Boy Group", choices=CATEGORY_CHOICES
     )
     desc = models.CharField(max_length=200, null=True)
-    image = models.ImageField(upload_to='post/', blank=True)
+    image = models.ImageField(upload_to="post/", blank=True)
+    image_back = models.ImageField(upload_to="post/", blank=True)
 
     like_users = models.ManyToManyField(
-        CustomUser, related_name="like_artists", blank=True)
+        CustomUser, related_name="like_artists", blank=True
+    )
+
+    def __str__(self):
+        return self.name
