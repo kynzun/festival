@@ -33,3 +33,8 @@ def artist_vote(request, name):
     else:
         artist.like_users.add(user)
     return render(request, "artist_view.html", {"artist": artist, "vote_success": vote_success})
+
+
+def category_view(request, category):
+    artists = Artist.objects.filter(category=category)
+    return render(request, "category_view.html", {"artists": artists})

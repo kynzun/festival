@@ -1,13 +1,11 @@
 {%extends 'base.html' %}
 {% block content %}
-<h1>home 화면</h1>
-<hr>
-<a href="/categoryView/Boy Group">보이 그룹</a>
-<hr>
+
 {%for artist in artists %}
 <a href="{%url 'artistView' artist.name %}">
     <h1>{{artist.name}}</h1>
     <img src="{{artist.image.url}}" style="width: 100px;">
 </a>
 {%endfor%}
+
 {% endblock %}
