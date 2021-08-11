@@ -1,7 +1,7 @@
 {%extends 'base.html' %}
 {% block content %}
 <h1>{{artist.name}}</h1>
-<h1> {{artist.group}}</h1>
+<h1>{{artist.desc}}</h1>
 <img src="{{artist.image.url}}" style="width: 100px;">
 {%if voted %}
 이미 투표하셨어요

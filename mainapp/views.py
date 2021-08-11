@@ -27,12 +27,8 @@ def artist_view(request, name):
 def artist_vote(request, name):
     artist = Artist.objects.get(name=name)
     user = request.user
-    vote_success = True
-    if artist in user.like_artists.all():
-        vote_success = False
-    else:
-        artist.like_users.add(user)
-    return render(request, "artist_view.html", {"artist": artist, "vote_success": vote_success})
+    artist.like_users.add(user)
+    return redirect("artistView", artist.name)
 
 
 def category_view(request, category):

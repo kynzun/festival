@@ -6,25 +6,18 @@ from account.models import CustomUser
 
 class Artist(models.Model):
     CATEGORY_CHOICES = [
-        ("Boy Group", "Boy Group"),
-        ("Girl Group", "Girl Group"),
-        ("Rock Band", "Rock Band"),
-        ("Hip-Hop", "Hip-Hop"),
-        ("Etc", "Etc"),
-    ]
-    GROUP_CHOICES = [
-        ("Solo", "Solo"),
-        ("Duo", "Duo"),
-        ("Trio", "Trio"),
-        ("Quatro", "Quatro"),
-        ("etc", "etc"),
+        ("남자 아이돌", "남자 아이돌"),
+        ("여자 아이돌", "여자 아이돌"),
+        ("랩/힙합", "랩/힙합"),
+        ("인디음악", "인디음악"),
+        ("발라드", "발라드"),
+        ("락밴드", "락밴드"),
     ]
     name = models.CharField(max_length=100)
-    group = models.CharField(
-        max_length=100, default="Solo", choices=GROUP_CHOICES)
     category = models.CharField(
         max_length=100, default="Boy Group", choices=CATEGORY_CHOICES
     )
+    desc = models.CharField(max_length=200, null=True)
     image = models.ImageField(upload_to='post/', blank=True)
 
     like_users = models.ManyToManyField(
