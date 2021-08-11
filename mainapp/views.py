@@ -5,12 +5,24 @@ from .models import Artist
 
 
 def home(request):
-    artists = Artist.objects.all()
+    artists = Artist.objects.all()[:5]
+    bidols = Artist.objects.filter(category="남자 아이돌")[:5]
+    gidols = Artist.objects.filter(category="여자 아이돌")[:5]
+    hiphops = Artist.objects.filter(category="힙합")[:5]
+    indies = Artist.objects.filter(category="인디음악")[:5]
+    ballads = Artist.objects.filter(category="발라드")[:5]
+    bands = Artist.objects.filter(category="락밴드")[:5]
     return render(
         request,
         "home.html",
         {
             "artists": artists,
+            "bidols": bidols,
+            "gidols": gidols,
+            "hiphops": hiphops,
+            "indies": indies,
+            "ballads": ballads,
+            "bands": bands,
         },
     )
 

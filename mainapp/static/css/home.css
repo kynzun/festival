@@ -1,0 +1,11 @@
+.home-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.artist-list {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 15px;
+}
