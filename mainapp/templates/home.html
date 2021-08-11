@@ -1,4 +1,10 @@
 {%extends 'base.html' %}
 {% block content %}
 <h1>home 화면</h1>
+{%for artist in artists %}
+<h1>{{artist.name}}</h1>
+<h1>{{artist.category}}</h1>
+<h1>{{artist.group}}</h1>
+<h1>{{artist.like_users.count}}명이 좋아함</h1>
+{%endfor%}
 {% endblock %}

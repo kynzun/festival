@@ -50,5 +50,6 @@ def mypage_view(request):
         "username": user.username,
         "email": user.email,
         "university": user.university,
+        "like_artists": user.like_artists,
     }
     return render(request, "mypage.html", context=context)
