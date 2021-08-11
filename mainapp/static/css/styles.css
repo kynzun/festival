@@ -3,6 +3,7 @@
 @import 'reset.css';
 @import 'artist.css';
 @import 'home.css';
+@import 'mypage.css';
 
 body {
     background-color: #000;
