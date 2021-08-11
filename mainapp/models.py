@@ -28,4 +28,4 @@ class Artist(models.Model):
     image = models.ImageField(upload_to='post/', blank=True)
 
     like_users = models.ManyToManyField(
-        CustomUser, related_name="like_artists")
+        CustomUser, related_name="like_artists", blank=True)

@@ -6,7 +6,6 @@ from .models import Artist
 
 def home(request):
     artists = Artist.objects.all()
-
     return render(
         request,
         "home.html",
@@ -18,4 +17,19 @@ def home(request):
 
 def artist_view(request, name):
     artist = Artist.objects.get(name=name)
-    return render(request, "artist_view.html", {"artist": artist})
+    user = request.user
+    voted = False
+    if artist in user.like_artists.all():
+        voted = True
+    return render(request, "artist_view.html", {"artist": artist, "voted": voted})
+
+
+def artist_vote(request, name):
+    artist = Artist.objects.get(name=name)
+    user = request.user
+    vote_success = True
+    if artist in user.like_artists.all():
+        vote_success = False
+    else:
+        artist.like_users.add(user)
+    return render(request, "artist_view.html", {"artist": artist, "vote_success": vote_success})
