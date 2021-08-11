@@ -1,13 +1,27 @@
 {%extends 'base.html' %}
 {% block content %}
-<h1>{{artist.name}}</h1>
-<h1>{{artist.desc}}</h1>
-<img src="{{artist.image.url}}" style="width: 100px;">
-{%if voted %}
-이미 투표하셨어요
-{%else%}
-<a href="{%url 'artistVote' artist.name %}">투표하기</a>
-{%endif%}
-<h1>{{artist.like_users.count}}명이 좋아함</h1>
+<div class="artist-view-box">
+    <img class="artist-backImg" src="{{artist.image_back.url}}">
+    <div class="artist-view-row">
+        <div class="artist-view-name">{{artist.name}}</div>
+        <div class="artist-view-desc">{{artist.desc}}</div>
+        <div class="artist-view-voteCnt"><span
+                style="font-size: 60px; font-weight: 500;">{{artist.like_users.count}}</span> 명이 투표했어요
+        </div>
+        {%if voted %}
+        <button class="artist-view-btn">
+            이미 투표하셨어요
+        </button>
+        {%else%}
+        <a href="{%url 'artistVote' artist.name %}">
+            <button class="artist-view-btn">
+                투표하기
+            </button>
+        </a>
+        {%endif%}
+    </div>
+
+</div>
+<h3>댓글을 남겨주세요</h3>
 
 {% endblock %}
