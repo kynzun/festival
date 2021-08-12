@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="home-row">
-    <div class="">{{category}} ></div>
+    <div class="artist-header">{{category}} ></div>
     <div class="artist-list">
         {%for artist in artists %}
         <a class="artist-box" href="{%url 'artistView' artist.name %}">

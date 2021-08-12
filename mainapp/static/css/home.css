@@ -1,11 +1,20 @@
 .home-row {
     display: flex;
     flex-direction: column;
-    margin-bottom: 60px;
+    margin-bottom: 140px;
 }
 
 .artist-list {
     display: flex;
     flex-flow: row wrap;
-    margin-top: 15px;
+    margin: 15px 0;
+}
+
+.artist-header {
+    padding-left: 36px;
+    font-size: 28px;
+}
+
+a.artist-header:hover {
+    text-decoration: underline;
 }

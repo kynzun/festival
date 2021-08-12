@@ -2,7 +2,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 20px
+    margin: 0 20px;
+    opacity: 0.9;
+}
+
+.artist-box:hover>img {
+    /* -webkit-box-shadow: 0px 0px 10px 3px #FFFFFF;
+    box-shadow: 0px 0px 10px 3px #FFFFFF; */
+    /* opacity: 1; */
+}
+
+.artist-box:hover {
+    opacity: 1;
 }
 
 .artist-img {
