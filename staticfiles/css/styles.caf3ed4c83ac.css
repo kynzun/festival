@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("navbar.88cddd5f66dd.css");
+@import url("reset.9b7aa264c809.css");
+@import url("artist.53b488aa3b60.css");
+@import url("home.8df7b7721ccf.css");
+@import url("mypage.858861a18fd5.css");
+@import url("form.c85d0a169db1.css");
+
+body {
+    box-sizing: border-box;
+    background-color: #000;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    font-family: 'Roboto', sans-serif;
+    color: #FFF;
+}
+
+a,
+a:hover,
+a:active {
+    color: #FFF;
+}
+
+input {
+    color: #000;
+}
+
+input[type=file] {
+    color: #FFF;
+}
+
+main {
+    margin: 20px 30px;
+}
