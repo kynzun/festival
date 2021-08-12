@@ -1,15 +1,17 @@
 {%extends 'base.html' %}
 
 {% block content %}
-<form action="{%url 'signup' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-    {%for field in form %}
-    <div class="form-group">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.id_for_label }}"
-            placeholder="{{ field.label }}" name="{{ field.name }}" />
-    </div>
-    {%endfor %}
-    <input type="submit" value="회원가입">
-</form>
+<div class="signup-box">
+    <div class="">회원가입 후 원하는 무대를 직접 꾸며보세요!</div>
+    <form class="signup-form" action="{%url 'signup' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+        {%for field in form %}
+        <div class="form-group">
+            <input type="{{ field.field.widget.input_type }}" class="form-control" id="{{ field.id_for_label }}"
+                placeholder="{{ field.label }}" name="{{ field.name }}" />
+        </div>
+        {%endfor %}
+        <input class="form-submit" type="submit" value="회원가입">
+    </form>
+</div>
 {% endblock %}

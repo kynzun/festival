@@ -4,8 +4,10 @@
 @import 'artist.css';
 @import 'home.css';
 @import 'mypage.css';
+@import 'form.css';
 
 body {
+    box-sizing: border-box;
     background-color: #000;
     font-family: Roboto;
     font-style: normal;
