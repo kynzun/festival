@@ -16,12 +16,11 @@ def login_view(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            user = authenticate(
-                request=request, username=username, password=password)
+            user = authenticate(request=request, username=username, password=password)
             if user is not None:
                 login(request, user)
 
-        return redirect("home")
+        return redirect("mypage")
     else:
         form = AuthenticationForm()
         return render(request, "login.html", {"form": form})
