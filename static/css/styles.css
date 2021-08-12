@@ -1,6 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import 'navbar.css';
+@import 'reset.css';
+@import 'artist.css';
+@import 'home.css';
+@import 'mypage.css';
+@import 'form.css';
 
 body {
+    box-sizing: border-box;
     background-color: #000;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    font-family: 'Roboto', sans-serif;
+    color: #FFF;
+}
+
+a,
+a:hover,
+a:active {
+    color: #FFF;
+}
+
+input {
+    color: #000;
+}
+
+input[type=file] {
+    color: #FFF;
+}
+
+main {
+    margin: 20px 30px;
 }

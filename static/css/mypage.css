@@ -1,0 +1,24 @@
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.profile-row {
+    margin-left: 20px;
+    display: flex;
+
+}
+
+.profile-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+    margin: 0 20px
+}
+
+.profile-detail {
+    margin: 10px 0;
+}
