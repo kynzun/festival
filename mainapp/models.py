@@ -14,12 +14,12 @@ class Artist(models.Model):
         ("락밴드", "락밴드"),
     ]
     name = models.CharField(max_length=100)
+    image_url = models.CharField(max_length=100, null=True)
+    image_back_url = models.CharField(max_length=100, null=True)
     category = models.CharField(
         max_length=100, default="Boy Group", choices=CATEGORY_CHOICES
     )
     desc = models.CharField(max_length=200, null=True)
-    image = models.ImageField(upload_to="post/", blank=True)
-    image_back = models.ImageField(upload_to="post/", blank=True)
 
     like_users = models.ManyToManyField(
         CustomUser, related_name="like_artists", blank=True

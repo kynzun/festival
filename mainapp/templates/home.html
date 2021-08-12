@@ -1,81 +1,118 @@
-{%extends 'base.html' %}
-{% block content %}
-<div class="home-row">
-    <div class="artist-header">Now Trending - 탑 5 아티스트</div>
-    <div class="artist-list">
-        {%for artist in artists %}
-        <a class="artist-box" href="{%url 'artistView' artist.name %}">
-            <img class="artist-img" src="{{artist.image.url}}">
-            <div>{{artist.name}}</div>
-        </a>
-        {%endfor%}
-    </div>
-</div>
-<div class="home-row">
-    <a class="artist-header" href="/categoryView/남자 아이돌">남자 아이돌 ></a>
-    <div class="artist-list">
-        {%for bidol in bidols %}
-        <a class="artist-box" href="{%url 'artistView' bidol.name %}">
-            <img class="artist-img" src="{{bidol.image.url}}">
-            <div>{{bidol.name}}</div>
-        </a>
-        {%endfor%}
-    </div>
-</div>
-<div class="home-row">
-    <a class="artist-header" href="/categoryView/여자 아이돌">여자 아이돌 ></a>
-    <div class="artist-list">
-        {%for gidol in gidols %}
-        <a class="artist-box" href="{%url 'artistView' gidol.name %}">
-            <img class="artist-img" src="{{gidol.image.url}}">
-            <div>{{gidol.name}}</div>
-        </a>
-        {%endfor%}
-    </div>
-</div>
-<div class="home-row">
-    <a class="artist-header" href="/categoryView/힙합">랩/힙합 ></a>
-    <div class="artist-list">
-        {%for hiphop in hiphops %}
-        <a class="artist-box" href="{%url 'artistView' hiphop.name %}">
-            <img class="artist-img" src="{{hiphop.image.url}}">
-            <div>{{hiphop.name}}</div>
-        </a>
-        {%endfor%}
-    </div>
-</div>
-<div class="home-row">
-    <a class="artist-header" href="/categoryView/인디음악">인디음악 ></a>
-    <div class="artist-list">
-        {%for indie in indies %}
-        <a class="artist-box" href="{%url 'artistView' indie.name %}">
-            <img class="artist-img" src="{{indie.image.url}}">
-            <div>{{indie.name}}</div>
-        </a>
-        {%endfor%}
-    </div>
-</div>
-<div class="home-row">
-    <a class="artist-header" href="/categoryView/발라드">발라드 ></a>
-    <div class="artist-list">
-        {%for ballad in ballads %}
-        <a class="artist-box" href="{%url 'artistView' ballad.name %}">
-            <img class="artist-img" src="{{ballad.image.url}}">
-            <div>{{ballad.name}}</div>
-        </a>
-        {%endfor%}
-    </div>
-</div>
-<div class="home-row">
-    <a class="artist-header" href="/categoryView/락밴드">락밴드 ></a>
-    <div class="artist-list">
-        {%for band in bands %}
-        <a class="artist-box" href="{%url 'artistView' band.name %}">
-            <img class="artist-img" src="{{band.image.url}}">
-            <div>{{band.name}}</div>
-        </a>
-        {%endfor%}
-    </div>
-</div>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
 
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Logo */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+    </style>
+    <link rel="stylesheet" href="{%static 'css/styles.css' %}?v=1.1">
+    <title>We Make Festival</title>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <a class="logo-box" href="{%url 'home' %}">
+            <img class="logo-img" src="{%static 'images/logo.jpg' %}" alt='logo' ">
+            <div class=" logo-word">
+            We Make
+            <br>
+            Festival
+            </div>
+        </a>
+        <div class=" user-box">
+            {% if user.is_authenticated %}
+            <a class="user-logout" href="{%url 'logout' %}">logout</a>
+            <a href="{%url 'mypage' %}">
+                <img style="width: 50px; height: 50px; border-radius: 70%;" src="{%static 'images/baseimage.jpg' %}">
+            </a>
+            {% else %}
+            <a class="user-login" href="{%url 'login' %}">login</a>
+            <a class="user-signup" href="{%url 'signup' %}">signup</a>
+            {% endif %}
+        </div>
+    </nav>
+    <main>
+        <div class="home-row">
+            <div class="artist-header">Now Trending - 탑 5 아티스트</div>
+            <div class="artist-list">
+                {%for artist in artists %}
+                <a class="artist-box" href="{%url 'artistView' artist.name %}">
+                    <img class="artist-img" src="{%static 'images' %}/{{artist.image_url}}">
+                    <div>{{artist.name}}</div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="home-row">
+            <a class="artist-header" href="/categoryView/남자 아이돌">남자 아이돌 ></a>
+            <div class="artist-list">
+                {%for bidol in bidols %}
+                <a class="artist-box" href="{%url 'artistView' bidol.name %}">
+                    <img class="artist-img" src="{%static 'images' %}/{{bidol.image_url}}">
+                    <div>{{bidol.name}}</div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="home-row">
+            <a class="artist-header" href="/categoryView/여자 아이돌">여자 아이돌 ></a>
+            <div class="artist-list">
+                {%for gidol in gidols %}
+                <a class="artist-box" href="{%url 'artistView' gidol.name %}">
+                    <img class="artist-img" src="{%static 'images' %}/{{gidol.image_url}}">
+                    <div>{{gidol.name}}</div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="home-row">
+            <a class="artist-header" href="/categoryView/힙합">랩/힙합 ></a>
+            <div class="artist-list">
+                {%for hiphop in hiphops %}
+                <a class="artist-box" href="{%url 'artistView' hiphop.name %}">
+                    <img class="artist-img" src="{%static 'images' %}/{{hiphop.image_url}}">
+                    <div>{{hiphop.name}}</div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="home-row">
+            <a class="artist-header" href="/categoryView/인디음악">인디음악 ></a>
+            <div class="artist-list">
+                {%for indie in indies %}
+                <a class="artist-box" href="{%url 'artistView' indie.name %}">
+                    <img class="artist-img" src="{%static 'images' %}/{{indie.image_url}}">
+                    <div>{{indie.name}}</div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="home-row">
+            <a class="artist-header" href="/categoryView/발라드">발라드 ></a>
+            <div class="artist-list">
+                {%for ballad in ballads %}
+                <a class="artist-box" href="{%url 'artistView' ballad.name %}">
+                    <img class="artist-img" src="{%static 'images' %}/{{ballad.image_url}}">
+                    <div>{{ballad.name}}</div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="home-row">
+            <a class="artist-header" href="/categoryView/락밴드">락밴드 ></a>
+            <div class="artist-list">
+                {%for band in bands %}
+                <a class="artist-box" href="{%url 'artistView' band.name %}">
+                    <img class="artist-img" src="{%static 'images' %}/{{band.image_url}}">
+                    <div>{{band.name}}</div>
+                </a>
+                {%endfor%}
+            </div>
+        </div>
+    </main>
+</body>
