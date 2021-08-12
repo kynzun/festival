@@ -42,7 +42,7 @@
             <div class="artist-list">
                 {%for artist in artists %}
                 <a class="artist-box" href="{%url 'artistView' artist.name %}">
-                    <img class="artist-img" src="{{artist.image_url}}">
+                    <img class="artist-img" src="{%static 'images' %}/{{artist.image_url}}">
                     <div>{{artist.name}}</div>
                 </a>
                 {%endfor%}
@@ -53,7 +53,7 @@
             <div class="artist-list">
                 {%for bidol in bidols %}
                 <a class="artist-box" href="{%url 'artistView' bidol.name %}">
-                    <img class="artist-img" src="{{bidol.image_url}}">
+                    <img class="artist-img" src="{%static 'images' %}/{{bidol.image_url}}">
                     <div>{{bidol.name}}</div>
                 </a>
                 {%endfor%}
@@ -64,7 +64,7 @@
             <div class="artist-list">
                 {%for gidol in gidols %}
                 <a class="artist-box" href="{%url 'artistView' gidol.name %}">
-                    <img class="artist-img" src="{{gidol.image_url}}">
+                    <img class="artist-img" src="{%static 'images' %}/{{gidol.image_url}}">
                     <div>{{gidol.name}}</div>
                 </a>
                 {%endfor%}
@@ -75,7 +75,7 @@
             <div class="artist-list">
                 {%for hiphop in hiphops %}
                 <a class="artist-box" href="{%url 'artistView' hiphop.name %}">
-                    <img class="artist-img" src="{{hiphop.image_url}}">
+                    <img class="artist-img" src="{%static 'images' %}/{{hiphop.image_url}}">
                     <div>{{hiphop.name}}</div>
                 </a>
                 {%endfor%}
@@ -86,7 +86,7 @@
             <div class="artist-list">
                 {%for indie in indies %}
                 <a class="artist-box" href="{%url 'artistView' indie.name %}">
-                    <img class="artist-img" src="{{indie.image_url}}">
+                    <img class="artist-img" src="{%static 'images' %}/{{indie.image_url}}">
                     <div>{{indie.name}}</div>
                 </a>
                 {%endfor%}
@@ -97,7 +97,7 @@
             <div class="artist-list">
                 {%for ballad in ballads %}
                 <a class="artist-box" href="{%url 'artistView' ballad.name %}">
-                    <img class="artist-img" src="{{ballad.image_url}}">
+                    <img class="artist-img" src="{%static 'images' %}/{{ballad.image_url}}">
                     <div>{{ballad.name}}</div>
                 </a>
                 {%endfor%}
@@ -108,7 +108,7 @@
             <div class="artist-list">
                 {%for band in bands %}
                 <a class="artist-box" href="{%url 'artistView' band.name %}">
-                    <img class="artist-img" src="{{band.image_url}}">
+                    <img class="artist-img" src="{%static 'images' %}/{{band.image_url}}">
                     <div>{{band.name}}</div>
                 </a>
                 {%endfor%}

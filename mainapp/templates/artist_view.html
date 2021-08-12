@@ -38,9 +38,7 @@
     </nav>
     <main>
         <div class="artist-view-box">
-            {%if artist.image_back %}
-            <img class="artist-backImg" src="{{artist.image_back_url}}">
-            {%endif%}
+            <img class="artist-backImg" src="{%static 'images' %}/{{artist.image_back_url}}">
             <div class="artist-view-row">
                 <div class="artist-view-name">{{artist.name}}</div>
                 <div class="artist-view-desc">{{artist.desc}}</div>
