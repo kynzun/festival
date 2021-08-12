@@ -9,3 +9,8 @@
     flex-flow: row wrap;
     margin-top: 15px;
 }
+
+.home-header {
+    padding-left: 36px;
+    font-size: 28px;
+}
