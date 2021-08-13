@@ -60,14 +60,18 @@
 
         </div>
         <h3>댓글을 남겨주세요</h3>
-        {%for comment in comments %}
-        <h3>{{comment.text}}</h3>
-        <h3>{{comment.author.username}}</h3>
-        {%endfor %}
-        <form action="{%url 'addComment' artist.name %}" method="post">
+        <div class="comment-list">
+            {%for comment in comments %}
+            <div class="comment-box">
+                <div class="comment-text">{{comment.text}}</div>
+                <div class="comment-author">{{comment.author.username}}</div>
+            </div>
+            {%endfor %}
+        </div>
+        <form class="comment-add-box" action="{%url 'addComment' artist.name %}" method="post">
             {%csrf_token%}
-            <input class="comment-text" type="text" name="text" placeholder="댓글을 남겨주세요" st>
-            <button class="comment-btn" type="submit">추가</button>
+            <input class="comment-add-text" type="text" name="text" placeholder="댓글을 남겨주세요 (최대 30자)" maxlength="30">
+            <button class="comment-add-btn" type="submit">추가</button>
         </form>
     </main>
 </body>
