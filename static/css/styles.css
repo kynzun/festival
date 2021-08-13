@@ -16,6 +16,7 @@ body {
     line-height: 23px;
     font-family: 'Roboto', sans-serif;
     color: #FFF;
+    min-width: 1450px;
 }
 
 a,

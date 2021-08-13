@@ -6,12 +6,6 @@
     opacity: 0.9;
 }
 
-.artist-box:hover>img {
-    /* -webkit-box-shadow: 0px 0px 10px 3px #FFFFFF;
-    box-shadow: 0px 0px 10px 3px #FFFFFF; */
-    /* opacity: 1; */
-}
-
 .artist-box:hover {
     opacity: 1;
 }
@@ -36,7 +30,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
     opacity: 0.4;
 }
 
