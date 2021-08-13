@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Artist
+from .models import Artist, Comment
 from django.contrib.auth.decorators import login_required
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -31,11 +32,20 @@ def home(request):
 @login_required(redirect_field_name=None, login_url="login")
 def artist_view(request, name):
     artist = Artist.objects.get(name=name)
+    comments = Comment.objects.filter(artist=artist)
     user = request.user
     voted = False
     if artist in user.like_artists.all():
         voted = True
-    return render(request, "artist_view.html", {"artist": artist, "voted": voted})
+    return render(
+        request,
+        "artist_view.html",
+        {
+            "artist": artist,
+            "voted": voted,
+            "comments": comments,
+        },
+    )
 
 
 @login_required(redirect_field_name=None, login_url="login")
@@ -51,3 +61,17 @@ def category_view(request, category):
     return render(
         request, "category_view.html", {"artists": artists, "category": category}
     )
+
+
+def add_comment(request, name):
+    artist = Artist.objects.get(name=name)
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+
+        if comment_form.is_valid():
+            comment = comment_form.save()
+            comment.artist = artist
+            comment.author = request.user
+            comment.save()
+            return redirect("artistView", artist.name)
+    return redirect("artistView", artist.name)
