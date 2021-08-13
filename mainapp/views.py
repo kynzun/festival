@@ -69,7 +69,7 @@ def add_comment(request, name):
         comment_form = CommentForm(request.POST)
 
         if comment_form.is_valid():
-            comment = comment_form.save()
+            comment = comment_form.save(commit=False)
             comment.artist = artist
             comment.author = request.user
             comment.save()
